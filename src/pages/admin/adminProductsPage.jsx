@@ -1,13 +1,17 @@
 import axios from "axios";
 
 export default function AdminProductsPage() {
-  axios.get("http://localhost:3000/api/products").then((res) => {
-    console.log(res);
-  });
+  
+  getProducts();
 
   return (
     <>
       <h1>Admin Products Page</h1>
     </>
   );
+}
+
+async function getProducts() {
+  const res = await axios.get("http://localhost:3000/api/products");
+  console.log(res);
 }
