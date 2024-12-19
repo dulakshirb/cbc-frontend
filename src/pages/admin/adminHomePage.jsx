@@ -1,6 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 
 import { BsBox, BsGraphUp, BsPeople, BsCartCheck } from "react-icons/bs";
+import AdminProductsPage from "./adminProductsPage";
 
 export default function AdminHomePage() {
   return (
@@ -44,7 +45,7 @@ export default function AdminHomePage() {
       <div className="bg-blue-600 w-[80%] h-screen flex justify-center items-center">
         <Routes path="/*">
           <Route path="/" element={<h1>Dashboard</h1>} />
-          <Route path="/products" element={<h1>Products</h1>} />
+          <Route path="/products" element={<AdminProductsPage />} />
           <Route path="/orders" element={<h1>Orders</h1>} />
           <Route path="/customers" element={<h1>Customers</h1>} />
           <Route path="/*" element={<h1>404 Not Found</h1>} />
