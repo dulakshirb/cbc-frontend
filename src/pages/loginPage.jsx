@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div className="w-full h-full flex justify-center items-center text-text">
       <div className="border p-5 rounded-lg">
@@ -11,11 +16,25 @@ export default function LoginPage() {
         <div className="flex flex-col gap-4 min-w-96">
           <div className="flex flex-col gap-2 min-w-96">
             <span>Email address</span>
-            <input className="border rounded-sm p-2" type="text" />
+            <input
+              className="border rounded-sm p-2"
+              type="text"
+              defaultValue={email}
+              placeholder="yourname@company.com"
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }} />
           </div>
           <div className="flex flex-col gap-2 min-w-96">
             <span>Password</span>
-            <input className="border rounded-sm p-2" type="password" />
+            <input
+              className="border rounded-sm p-2"
+              type="password"
+              defaultValue={password}
+              placeholder="******"
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }} />
           </div>
         </div>
         <div className="flex justify-end text-sm underline mb-8 mt-1">
