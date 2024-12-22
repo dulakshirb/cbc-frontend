@@ -1,10 +1,35 @@
+import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  function handleLoginClicked() {
+    axios
+      .post("http://localhost:3000/api/users/login", {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        // check user valid or not
+        if (res.data.user == null) {
+          alert(res.data.message);
+          return;
+        }
+
+        // get and store on cache jwt token
+        localStorage.setItem("token", res.data.token);
+
+        // redirect user to pages base on their type
+        if (res.data.user.type == "admin") {
+          window.location.href = "/admin";
+        } else {
+          window.location.href = "/";
+        }
+      });
+  }
 
   return (
     <div className="w-full h-full flex justify-center items-center text-text">
@@ -22,8 +47,9 @@ export default function LoginPage() {
               defaultValue={email}
               placeholder="yourname@company.com"
               onChange={(e) => {
-                setEmail(e.target.value)
-              }} />
+                setEmail(e.target.value);
+              }}
+            />
           </div>
           <div className="flex flex-col gap-2 min-w-96">
             <span>Password</span>
@@ -33,14 +59,22 @@ export default function LoginPage() {
               defaultValue={password}
               placeholder="******"
               onChange={(e) => {
-                setPassword(e.target.value)
-              }} />
+                setPassword(e.target.value);
+              }}
+            />
           </div>
         </div>
         <div className="flex justify-end text-sm underline mb-8 mt-1">
-          <Link className="text-primary hover:text-primary-hover">Forget Password</Link>
+          <Link className="text-primary hover:text-primary-hover">
+            Forget Password
+          </Link>
         </div>
-        <button className="w-full bg-primary text-white hover:bg-primary-hover p-3 rounded-lg">Sign in</button>
+        <button
+          className="w-full bg-primary text-white hover:bg-primary-hover p-3 rounded-lg"
+          onClick={handleLoginClicked}
+        >
+          Sign in
+        </button>
       </div>
     </div>
   );
