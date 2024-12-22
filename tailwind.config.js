@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Be Vietnam Pro"', 'sans-serif'], // Add this to your font stack
+      },
       colors: {
         primary: {
           DEFAULT: '#FF7477', // Light mode
