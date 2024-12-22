@@ -10,7 +10,7 @@ function App() {
     <>
       <BrowserRouter>
         <Toaster
-          position="top-right"
+          position="top-center"
         />
         <Routes path="/*">
           <Route path="/*" element={<HomePage />} />

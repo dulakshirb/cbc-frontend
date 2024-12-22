@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
@@ -15,7 +16,7 @@ export default function LoginPage() {
       .then((res) => {
         // check user valid or not
         if (res.data.user == null) {
-          alert(res.data.message);
+          toast.error(res.data.message);
           return;
         }
 
