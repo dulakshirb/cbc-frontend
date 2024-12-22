@@ -7,7 +7,18 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Be Vietnam Pro"', 'sans-serif'], // Add this to your font stack
+        'be-vietnam': ['"Be Vietnam Pro"', 'sans-serif'], // Add this to your font stack
+      },
+      fontWeight: {
+        thin: 100,
+        extralight: 200,
+        light: 300,
+        normal: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+        extrabold: 800,
+        black: 900,
       },
       colors: {
         primary: {
