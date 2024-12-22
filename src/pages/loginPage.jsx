@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   return (
-    <div className="bg-background w-full h-full flex justify-center items-center text-text">
-      <div className="bg-white p-5 rounded-lg">
+    <div className="w-full h-full flex justify-center items-center text-text">
+      <div className="border p-5 rounded-lg">
         <div className="flex flex-col gap-1 mb-8">
           <span className="font-semibold text-3xl">Welcome back</span>
           <span className="font-light">Please enter your details</span>
