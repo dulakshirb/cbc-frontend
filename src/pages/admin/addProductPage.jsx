@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function AddProductPage() {
   const [productId, setProductId] = useState("");
@@ -11,6 +12,8 @@ export default function AddProductPage() {
   const [lastPrice, setLastPrice] = useState("");
   const [stock, setStock] = useState("");
   const [description, setDescription] = useState("");
+
+  const navigate = useNavigate();
 
   async function handleSubmit() {
     const altNames = alternativeNames.split(",");
@@ -34,7 +37,7 @@ export default function AddProductPage() {
           Authorization: `Bearer ${token}`,
         },
       });
-
+      navigate("/admin/products");
       toast.success("Product added successfully");
     } catch (err) {
       toast.error("Failed to add product");
