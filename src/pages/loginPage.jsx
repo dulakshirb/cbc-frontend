@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   function handleLoginClicked() {
     axios
@@ -25,9 +26,11 @@ export default function LoginPage() {
 
         // redirect user to pages base on their type
         if (res.data.user.type == "admin") {
-          window.location.href = "/admin";
+          // window.location.href = "/admin";
+          navigate("/admin");
         } else {
-          window.location.href = "/";
+          // window.location.href = "/";
+          navigate("/");
         }
       });
   }

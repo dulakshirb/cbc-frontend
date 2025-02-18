@@ -7,6 +7,7 @@ import LoginPage from "./loginPage";
 import ContactPage from "./home/contactPage";
 import SignUpPage from "./signUpPage";
 import Footer from "../components/footer";
+import FileUploadTest from "./test";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/test" element={<FileUploadTest/>}/>
           <Route path="/*" element={<h1>Not Found</h1>} />
         </Routes>
       </div>
